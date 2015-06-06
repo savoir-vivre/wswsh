@@ -21,24 +21,7 @@ print "${WTIT}" | tr ' ' "\n"
 print "</a>
 </div>"
 print '<div id=con>
-<nav>
-<dl>
-<dt><a href="/00_home/">00_home</a></dt>
-<dd><a href="/00_home/archiv.html">archiv.txt</a></dd>
-<dt><a href="/01_info/">01_info</a></dt>
-<dt><a href="/02_stage/">02_stage</a></dt>
-<dd><a href="/02_stage/01_action_in_perception.html">01_action_in_perception.txt</a></dd>
-<dd><a href="/02_stage/02_hauntology.html">02_hauntology.txt</a></dd>
-<dd><a href="/02_stage/03_exper_geography.html">03_exper_geography.txt</a></dd>
-<dd><a href="/02_stage/04_intraaktion.html">04_intraaktion.txt</a></dd>
-<dt><a href="/03_code/">03_code</a></dt>
-<dt><a href="/04_hypomnemata/">04_hypomnemata</a></dt>
-<dd><a href="/04_hypomnemata/III.html">III.txt</a></dd>
-<dt><a href="/99_kontakt/">99_kontakt</a></dt>
-</dl>
-</nav>
-<div id="paper">
-<article>
+<div>FOO</div>
 '
 }
 

@@ -1,0 +1,8 @@
+#!/home/savoirvi/bin/mksh
+
+./scripts/gen.layout
+make
+./scripts/insert.files
+./scripts/gen.thispage
+./scripts/gen.gitlink
+./scripts/gen.css

@@ -1,0 +1,32 @@
+#!/home/savoirvi/bin/mksh
+
+list="\
+$(find src/*/ -type f -name index.txt -printf '%h\0%d\0%p\n' 2> /dev/null \
+| sort -t '\0' -n \
+| awk -F '\0' '{print $3}' \
+| cut -d '/' -f 2 \
+| while read dir; do
+	printf '%s\n' "\<dt\>\<a\ href\=\"\\/$dir\\/\"\>$(print $dir \
+	| tr '-' ' ')\<\\/a\>\<\\/dt\>\\"
+	find src/$dir/*.txt -type f ! -name index.txt -printf '%h\0%d\0%p\n' 2> /dev/null \
+	| sort -t '\0' -n \
+	| awk -F '\0' '{print $3}' \
+	| while read file; do
+		t="$(printf '%s' "$file" | sed 's#.*/##')"
+		printf '%s' "\\<dd\>\<a\ href\=\"\\/$dir\\/"
+		printf '%s' "$t" | sed 's/\.txt/\.html/'
+		printf '%s\n' "\"\>$t\<\\/a\>\<\\/dd\>\\"
+	done
+done)"
+
+# escape: $.*[\]^&/
+
+menu="<nav>\\
+<dl>\\
+$list
+<\\/dl>\\
+<\\/nav>\\
+<div id=\"paper\">\\
+<article>"
+
+sed -e "s/<div>FOO<\/div>/$menu/" scripts/layout > includes/layout
