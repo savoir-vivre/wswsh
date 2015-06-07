@@ -2,7 +2,7 @@
 source ./wswsh.conf
 
 owner="savoir-vivre"
-branch="master"
+branch="Test"
 
 find dest/ -type f ! -name *index.html -name *.html \
 | while read file; do
