@@ -2,4 +2,4 @@
 
 . ./wswsh.conf
 
-rsync -qaPh --del dest/ /var/www/virtual/$USER/$(pwd | rev | cut -d '/' -f 1 | rev).$WURL/
+rsync -qaPh --del dest/ /var/www/virtual/$VUSER/$(pwd | rev | cut -d '/' -f 1 | rev).$WURL/
