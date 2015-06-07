@@ -1,7 +1,7 @@
 #!/home/savoirvi/bin/mksh
 
 ./scripts/gen.layout
-make
+SHELL=/home/savoirvi/bin/mksh make
 ./scripts/insert.files
 ./scripts/gen.thispage
 ./scripts/gen.gitlink
