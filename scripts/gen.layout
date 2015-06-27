@@ -2,11 +2,13 @@
 
 list="\
 $(find src/*/ -type f -name index.txt -o -name index.wshtml 2> /dev/null \
+| sort \
 | cut -d '/' -f 2 \
 | while read dir; do
 	printf '%s\n' "\<dt\>\<a\ href\=\"\\/$dir\\/\"\>$(print $dir \
 	| tr '-' ' ')\<\\/a\>\<\\/dt\>\\"
 	find src/$dir/ -type f \( -name *.txt -o -name *.wshtml \) ! -name index.* 2> /dev/null \
+	| sort \
 	| while read file; do
 		t="$(printf '%s' "$file" | sed 's#.*/##')"
 		printf '%s' "\\<dd\>\<a\ href\=\"\\/$dir\\/"
