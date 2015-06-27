@@ -46,6 +46,8 @@ function get_interp {
 	esac
 }
 
+function pagetit_html { awk '/<h1>/{gsub(/^[\t ]*<h1>[\t ]*|[\t ]*<\/h1>.*/,"");print $0;exit}' "$1"; }
+
 function gen_page {
 	if [[ -n $CSSF && -r ${RAC}/src/${CSSF} ]]; then
 		# Launch layout custom stylesheet
@@ -74,6 +76,19 @@ function gen_page {
 		(( COPY == 1 )) && cp "src/${FILENOSRC}" "dest/${FILENOSRC}"
 	done
 
+	find "src" -type f -iname “*.wshtml” | while IFS=$'\n' read -r FILE; do
+		FILENOSRC="${FILE#*/}"
+		FILENOEXT="${FILENOSRC%%.*}"
+		FILEXPORT="dest/${FILENOEXT}.html"
+		FILETIT="$(pagetit_html "$FILE")"
+		page_head >"$FILEXPORT"
+		cat "$FILE" >>"$FILEXPORT"
+		RET=$?
+		if (( RET != 0 )); then
+			prynt_err "Generating $FILE failed"
+		fi
+		page_foot >>"$FILEXPORT"
+	done
 	# RSS / Atom
 	if (( FEED == 1 )); then
 		[[ -n $ARTD && ! -d $ARTD ]] && prynt_err "The article directory is missing!"
