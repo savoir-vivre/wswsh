@@ -76,7 +76,7 @@ function gen_page {
 		(( COPY == 1 )) && cp "src/${FILENOSRC}" "dest/${FILENOSRC}"
 	done
 
-	find "src" -type f -iname “*.wshtml” | while IFS=$'\n' read -r FILE; do
+	find "src" -type f -iname "*.wshtml" | while IFS=$'\n' read -r FILE; do
 		FILENOSRC="${FILE#*/}"
 		FILENOEXT="${FILENOSRC%%.*}"
 		FILEXPORT="dest/${FILENOEXT}.html"
@@ -89,6 +89,7 @@ function gen_page {
 		fi
 		page_foot >>"$FILEXPORT"
 	done
+
 	# RSS / Atom
 	if (( FEED == 1 )); then
 		[[ -n $ARTD && ! -d $ARTD ]] && prynt_err "The article directory is missing!"
