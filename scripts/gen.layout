@@ -5,23 +5,25 @@ $(find src/*/ -type f -name index.txt -o -name index.wshtml 2> /dev/null \
 | sort \
 | cut -d '/' -f 2 \
 | while read dir; do
-	printf '%s\n' "\<dl\>\<dt\>\<a\ href\=\"\\/$dir\\/\"\>$(print $dir \
-	| tr '-' ' ')\<\\/a\>\<\\/dt\>\\"
+	printf '%s\n' "\<li\>\<a\ href\=\"\\/$dir\\/\"\>$(print $dir \
+	| tr '-' ' ')\<\\/a\>\<\\/li\><\\/ul\>\\"
 	find src/$dir/ -type f \( -name *.txt -o -name *.wshtml \) ! -name index.* 2> /dev/null \
 	| sort \
 	| while read file; do
 		t="$(printf '%s' "$file" | sed 's#.*/##')"
-		printf '%s' "\\<dd\>\<a\ href\=\"\\/$dir\\/"
+		printf '%s' "\\<li\>\<a\ href\=\"\\/$dir\\/"
 		printf '%s' "$t" | sed -e 's/\.txt$/\.html/' -e 's/\.wshtml$/\.html/'
-		printf '%s\n' "\"\>$t\<\\/a\>\<\\/dd\>\\"
+		printf '%s\n' "\"\>$t\<\\/a\>\<\\/li\>\\"
 	done
-	printf '%s\n' "\<\\/dl\>\\"
+	printf '%s\n' "\<\\/ul\>\\"
 done)"
 
 # escape: $.*[\]^&/
 
 menu="<nav>\\
+<ul>\\
 $list
+<\\/ul>\\
 <\\/nav>\\
 <div id=\"paper\">\\
 <article>"
