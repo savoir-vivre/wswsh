@@ -6,7 +6,7 @@ $(find src/*/ -type f -name index.txt -o -name index.wshtml 2> /dev/null \
 | cut -d '/' -f 2 \
 | while read dir; do
 	printf '%s\n' "\<li\>\<a\ href\=\"\\/$dir\\/\"\>$(print $dir \
-	| tr '-' ' ')\<\\/a\>\<\\/li\><\\/ul\>\\"
+	| tr '-' ' ')\<\\/a\>\\<ul\>\\"
 	find src/$dir/ -type f \( -name *.txt -o -name *.wshtml \) ! -name index.* 2> /dev/null \
 	| sort \
 	| while read file; do
@@ -15,7 +15,7 @@ $(find src/*/ -type f -name index.txt -o -name index.wshtml 2> /dev/null \
 		printf '%s' "$t" | sed -e 's/\.txt$/\.html/' -e 's/\.wshtml$/\.html/'
 		printf '%s\n' "\"\>$t\<\\/a\>\<\\/li\>\\"
 	done
-	printf '%s\n' "\<\\/ul\>\\"
+	printf '%s\n' "\<\\/ul\><\\/li\>\\"
 done)"
 
 # escape: $.*[\]^&/
