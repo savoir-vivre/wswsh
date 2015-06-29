@@ -12,7 +12,7 @@ $(find src/*/ -type f -name index.txt -o -name index.wshtml 2> /dev/null \
 	| while read file; do
 		t="$(printf '%s' "$file" | sed 's#.*/##')"
 		printf '%s' "\\<li\>\<a\ href\=\"\\/$dir\\/"
-		printf '%s' "$t" | sed -e 's/\.txt$/\.html/' -e 's/\.wshtml$/\.html/'
+		printf '%s' "$t" | sed -e 's/\.txt$/\.html/' -e 's/\.wshtml$/\.html/' -e 's/\ /\%20/'
 		printf '%s\n' "\"\>$t\<\\/a\>\<\\/li\>\\"
 	done
 	printf '%s\n' "\<\\/ul\><\\/li\>\\"
