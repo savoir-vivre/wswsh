@@ -5,8 +5,8 @@ $(find src/*/ -type f -name index.txt -o -name index.wshtml 2> /dev/null \
 | sort \
 | cut -d '/' -f 2 \
 | while read dir; do
-	printf '%s\n' "\<dt\>\<a\ href\=\"\\/$dir\\/\"\>$(print $dir \
-	| tr '-' ' ')\<\\/a\>\<\\/dt\>\\"
+	printf '%s\n' "\<dl\>\<dt\>\<a\ href\=\"\\/$dir\\/\"\>$(print $dir \
+	| tr '-' ' ')\<\\/a\>\<\\/dt\><\\/dl\>\\"
 	find src/$dir/ -type f \( -name *.txt -o -name *.wshtml \) ! -name index.* 2> /dev/null \
 	| sort \
 	| while read file; do
@@ -20,9 +20,7 @@ done)"
 # escape: $.*[\]^&/
 
 menu="<nav>\\
-<dl>\\
 $list
-<\\/dl>\\
 <\\/nav>\\
 <div id=\"paper\">\\
 <article>"
