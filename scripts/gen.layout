@@ -15,7 +15,7 @@ $(find src/*/ -type f -name index.txt -o -name index.wshtml 2> /dev/null \
 		printf '%s' "$t" | sed -e 's/\.txt$/\.html/' -e 's/\.wshtml$/\.html/'
 		printf '%s\n' "\"\>$t\<\\/a\>\<\\/dd\>\\"
 	done
-	printf '%s\n' "\<\\/dl\>"
+	printf '%s\n' "\<\\/dl\>\\"
 done)"
 
 # escape: $.*[\]^&/
