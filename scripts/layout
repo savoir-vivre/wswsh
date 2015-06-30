@@ -12,8 +12,7 @@ function page_head {
 	else
 		print "\t<title>${FILETIT}</title>"
 	fi
-	print '</head>
-<style type="text/css">
+	print '<style type="text/css">
 /* Thanks to Ypnose for sharing. */
 /* Check out his website: http://ywstd.fr/ */
 @font-face {
@@ -286,6 +285,7 @@ nav {
 	}
 }
 </style>
+</head>
 <body>'
 
 printf '%s' "<div id=page>
