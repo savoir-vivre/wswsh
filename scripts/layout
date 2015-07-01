@@ -225,7 +225,6 @@ code,.quote {
 	padding:30px;
 }
 #h0::after {
-	font-size:0.8em;
 	-webkit-animation:1s blink step-end infinite;
 	-moz-animation:1s blink step-end infinite;
 	-ms-animation:1s blink step-end infinite;
