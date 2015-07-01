@@ -178,20 +178,19 @@ blockquote {
 	border-bottom:3px solid black;
 	font-size:100px;
 	padding-bottom:20px;
+	line-height:90%;
 	clear:both;
 	overflow:hidden;
 }
 #banner a {
 	color:black;
 	text-decoration:none;
-	line-height:90%;
 	white-space:pre;
-	word-wrap:normal;
-	display:block;
 }
 #h0 {
 	float:left;
 	text-align:left;
+	position:relative;
 }
 #git {
 	float:right;
@@ -226,7 +225,58 @@ code,.quote {
 #con {
 	padding:30px;
 }
-
+#h0::after {
+	font-size:0.8em;
+	-webkit-animation:1s blink step-end infinite;
+	-moz-animation:1s blink step-end infinite;
+	-ms-animation:1s blink step-end infinite;
+	-o-animation:1s blink step-end infinite;
+	animation:1s blink step-end infinite;
+	position:absolute;
+	bottom:0;
+	right:0;
+	content:"▊";
+}
+@keyframes "blink" {
+	from, to {
+		color:transparent;
+	}
+	50% {
+		color:black;
+	}
+}
+@-moz-keyframes blink {
+	from, to {
+		color:transparent;
+	}
+	50% {
+		color:black;
+	}
+}
+@-webkit-keyframes "blink" {
+	from, to {
+		color:transparent;
+	}
+	50% {
+		color:black;
+	}
+}
+@-ms-keyframes "blink" {
+	from, to {
+		color:transparent;
+	}
+	50% {
+		color:black;
+  }
+}
+@-o-keyframes "blink" {
+	from, to {
+		color:transparent;
+	}
+	50% {
+		color:black;
+	}
+}
 /* entangled elements */
 body,h5,p code {
 	font-size:14px;
@@ -343,12 +393,19 @@ nav {
 }
 @media screen and (max-width:320px) {
 	#h0 {
-		float:none;
 		margin-bottom:15px;
 	}
 	#git {
-		float:none;
 		text-align:left;
+	}
+	#h0,#git {
+		float:none;
+		max-width:none;
+	}
+}
+@media screen and (max-width:200px) {
+	#h0::after {
+	  display:none;
 	}
 }
 </style>
