@@ -174,18 +174,28 @@ blockquote {
 }
 
 /* special elements */
-#h0 {
+#banner {
 	border-bottom:3px solid black;
 	font-size:100px;
 	padding-bottom:20px;
+	clear:both;
+	overflow:hidden;
 }
-#h0 a {
+#banner a {
 	color:black;
 	text-decoration:none;
 	line-height:90%;
 	white-space:pre;
 	word-wrap:normal;
 	display:block;
+}
+#h0 {
+	float:left;
+	text-align:left;
+}
+#git {
+	float:right;
+	text-align:right;
 }
 #gitlink {
 	border-bottom:dotted black;
@@ -224,6 +234,9 @@ body,h5,p code {
 h3,blockquote {
 	padding-left:12px;
 }
+#h0,#git {
+	max-width:50%;
+}
 
 /* structure */
 nav {
@@ -251,6 +264,21 @@ nav {
 		margin:10px auto;
 	}
 }
+@media screen and (max-width:850px) {
+	#banner {
+	  font-size:90px;
+	}
+}
+@media screen and (max-width:800px) {
+	#banner {
+	  font-size:85px;
+	}
+}
+@media screen and (max-width:750px) {
+	#banner {
+	  font-size:80px;
+	}
+}
 @media screen and (max-width:700px) {
 	nav {
 		position:static;
@@ -269,19 +297,55 @@ nav {
 	#paper {
 		margin:40px auto;
 	}
+	#banner {
+	  font-size:75px;
+	}
+}
+@media screen and (max-width:650px) {
+	#banner {
+	  font-size:65px;
+	}
+}
+@media screen and (max-width:600px) {
+	#banner {
+	  font-size:60px;
+	}
+}
+@media screen and (max-width:550px) {
+	#banner {
+	  font-size:55px;
+	}
 }
 @media screen and (max-width:500px) {
-	#h0 {
-	  font-size:70px;
+	#banner {
+	  font-size:45px;
+	}
+}
+@media screen and (max-width:500px) {
+	#banner {
+	  font-size:40px;
 	}
 }
 @media screen and (max-width:400px) {
-	#h0 {
-		font-size:50px;
+	#banner {
+		font-size:40px;
 		padding-bottom:10px;
+	}
+	#git {
+		font-size:30px;
 	}
 	#page {
 		padding:10px;
+	}
+}
+@media screen and (max-width:320px) {
+	#h0 {
+		float:none;
+		margin-bottom:15px;
+	}
+	#git {
+		float:none;
+		text-align:left;
 	}
 }
 </style>
@@ -289,10 +353,17 @@ nav {
 <body>'
 
 printf '%s' "<div id=page>
+<div id=banner>
 <div id=h0>
 <a href="/">"
 print "${WTIT}" | tr ' ' "\n"
 print "</a>
+</div>
+<div id=git>
+<a href="https://github.com/snscltt/intraaktion.de" target="_blank">edit on
+↝ git
+</a>
+</div>
 </div>"
 print '<div id=con>
 <div>FOO</div>
