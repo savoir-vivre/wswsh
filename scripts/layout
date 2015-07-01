@@ -357,14 +357,14 @@ printf '%s' "<div id=page>
 <div id=h0>
 <a href="/">"
 print "${WTIT}" | tr ' ' "\n"
-print "</a>
+print '</a>
 </div>
 <div id=git>
-<a href="https://github.com/snscltt/intraaktion.de" target="_blank">edit on
+<a href="'${gitlink}'" target="_blank">edit on
 ↝ git
 </a>
 </div>
-</div>"
+</div>'
 print '<div id=con>
 <div>FOO</div>
 '
