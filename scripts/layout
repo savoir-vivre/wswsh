@@ -232,6 +232,8 @@ nav {
 	max-width:1000px;
 }
 #con {
+	clear:both;
+	overflow:hidden;
 }
 #nav {
 	float:left;
