@@ -20,11 +20,13 @@ done)"
 
 # escape: $.*[\]^&/
 
-menu="<nav>\\
+menu="<div id=\"nav\">\\
+<nav>\\
 <ul>\\
 $list
 <\\/ul>\\
 <\\/nav>\\
+<\\/div>\\
 <div id=\"paper\">\\
 <article>"
 
