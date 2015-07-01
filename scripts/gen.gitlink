@@ -7,6 +7,7 @@ find dest/ -type f ! -name *index.html -name *.html \
 	txtpath="${htmlfile%.*}"
 	txtfile="$(find src/ -type f -wholename src/"$txtpath".* | cut -d '/' -f 2- )"
 	txtlink="$(print "$txtfile" | sed 's/\ /\%20/')"
+	gitlink="${gitlink}${txtlink}"
 
 	awk '{
 		if ( match($0, /<article>/, arr) ) {
