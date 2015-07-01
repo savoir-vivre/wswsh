@@ -190,7 +190,6 @@ blockquote {
 #h0 {
 	float:left;
 	text-align:left;
-	position:relative;
 }
 #git {
 	float:right;
@@ -232,9 +231,6 @@ code,.quote {
 	-ms-animation:1s blink step-end infinite;
 	-o-animation:1s blink step-end infinite;
 	animation:1s blink step-end infinite;
-	position:absolute;
-	bottom:0;
-	right:0;
 	content:"▊";
 }
 @keyframes "blink" {
@@ -416,7 +412,7 @@ printf '%s' "<div id=page>
 <div id=banner>
 <div id=h0>
 <a href="/">"
-print "${WTIT}" | tr ' ' "\n"
+printf '%s' "${WTIT}" | tr ' ' "\n"
 print '</a>
 </div>
 <div id=git>
