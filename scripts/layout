@@ -76,9 +76,9 @@ body {
 	font-weight:normal;
 }
 
-/* p {
+p {
 	text-align:justify;
-} */
+}
 h1 {
 	font-size:22px;
 }
