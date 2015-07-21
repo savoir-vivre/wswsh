@@ -273,6 +273,9 @@ code,.quote {
 nav a:hover,nav a:visited:hover,a.thisPage {
 	text-decoration:underline;
 }
+nav ul li ul li:first-child:before,nav ul li ul li:last-child:after {
+	font-weight:bold;
+}
 body,h5,p code {
 	font-size:14px;
 }
