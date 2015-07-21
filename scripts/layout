@@ -116,11 +116,12 @@ nav ul, nav ul a {
 	padding:0;
 }
 nav ul li, nav ul li a {
-	margin-top:1em;
+	margin-top:1.2em;
 }
 nav ul li ul li, nav ul li ul li a {
 	font-size:95%;
-	margin:0.3em 0.5em;
+	margin-top:0.8em;
+	margin-left:0.5em;
 }
 nav ul li ul li:first-child:before {
 	content:"{";
@@ -305,6 +306,11 @@ nav {
 }
 
 /* responsiveness */
+@media screen and (max-width:1053px) {
+	#page {
+	  max-width:95%;
+	}
+}
 @media screen and (max-width:850px) {
 	#banner {
 	  font-size:90px;
