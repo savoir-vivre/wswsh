@@ -75,28 +75,26 @@ body {
 	font-family:quicksand, sans-serif;
 	font-style:normal;
 	font-weight:normal;
+	margin:0;
 }
 
 p {
 	text-align:justify;
 }
 h1 {
-	font-size:22px;
+	font-size:1.7em;
 }
 h2 {
-	font-size:18px;
-	padding-left:16px;
+	font-size:1.3em;
+	padding-left:1em;
 }
 h3 {
-	font-size:16px;
+	font-size:1.2em;
 }
 h4 {
-	font-size:14px;
-	margin-bottom:0;
 	text-decoration:underline;
 }
 h5 {
-	margin:22px auto 16px;
 	border-bottom:1px dotted black;
 }
 /* a,a:visited {
@@ -118,11 +116,11 @@ nav ul, nav ul a {
 	padding:0;
 }
 nav ul li, nav ul li a {
-	margin:10px 0;
+	margin-top:1em;
 }
 nav ul li ul li, nav ul li ul li a {
 	font-size:95%;
-	margin-left:5px;
+	margin:0.3em 0.5em;
 }
 nav ul li ul li:first-child:before {
 	content:"{";
@@ -150,14 +148,12 @@ pre,p code {
 	background-color:white;
 }
 p code {
-	padding:1px 4px;
+	padding:0 0.25em;
 	white-space:nowrap;
 }
 pre {
-	padding:6px 12px;
 	overflow-x:auto;
 	max-width:95%;
-	margin:14px auto;
 }
 blockquote {
 	border-left:6px solid #808080;
@@ -174,7 +170,7 @@ blockquote {
 #banner {
 	border-bottom:3px solid black;
 	font-size:100px;
-	padding-bottom:20px;
+	padding-bottom:0.25em;
 	line-height:90%;
 	clear:both;
 	overflow:hidden;
@@ -195,14 +191,14 @@ blockquote {
 }
 #gitlink {
 	border-bottom:dotted black;
-	padding-bottom:20px;
-	font-size:13px;
+	padding-bottom:1em;
+	font-size:0.9em;
 	font-style:italic;
 	}
 #gitlink a {
 	color:black;
 	font-family:inconsolata,monospace;
-	font-size:13px;
+	font-size:0.9em;
 	word-wrap:break-word;
 	text-decoration:none;
 }
@@ -210,17 +206,17 @@ code,.quote {
 	font-family:inconsolata, monospace;
 }
 .quote {
-	padding-left:10px;
-	margin:10px;
+	padding-left:0.7em;
+	margin:0.7em;
 	border-left:1px dotted #808080;
 }
 #page {
 	background:white;
-	margin:30px auto;
-	padding:30px;
+	margin:2vw auto;
+	padding:2.5vw;
 }
 #con {
-	padding:30px;
+	padding:2.1em;
 }
 .blink {
 	-webkit-animation:1s blink step-end infinite;
@@ -276,11 +272,11 @@ nav a:hover,nav a:visited:hover,a.thisPage {
 nav ul li ul li:first-child:before,nav ul li ul li:last-child:after {
 	font-weight:bold;
 }
-body,h5,p code {
+body,p code {
 	font-size:14px;
 }
 h3,blockquote {
-	padding-left:12px;
+	padding-left:1em;
 }
 #h0,#git {
 	max-width:50%;
@@ -304,16 +300,11 @@ nav {
 #paper {
 	min-height:100vh;
 	max-width:600px;
-	margin-top:20px;
+	margin-top:2vh;
 	margin-left:300px;
 }
 
 /* responsiveness */
-@media screen and (max-width:1140px) {
-	#page {
-		margin:10px auto;
-	}
-}
 @media screen and (max-width:850px) {
 	#banner {
 	  font-size:90px;
@@ -334,6 +325,7 @@ nav {
 		max-width:none;
 		position:static;
 		height:auto;
+		padding-bottom:2em;
 	}
 	nav ul li {
 		display:inline-table;
@@ -346,7 +338,7 @@ nav {
 		padding:0;
 	}
 	#paper {
-		margin:40px auto;
+		margin-left:0;
 	}
 	#banner {
 	  font-size:75px;
@@ -375,10 +367,6 @@ nav {
 @media screen and (max-width:400px) {
 	#banner {
 		font-size:40px;
-		padding-bottom:10px;
-	}
-	#page {
-		padding:10px;
 	}
 }
 </style>
