@@ -308,7 +308,7 @@ nav {
 /* responsiveness */
 @media screen and (max-width:1053px) {
 	#page {
-	  max-width:95%;
+	  max-width:85%;
 	}
 }
 @media screen and (max-width:850px) {
