@@ -69,6 +69,7 @@ function page_head {
 html {
 	color:black;
 	background:whitesmoke;
+	min-width:320px;
 }
 body {
 	font-family:quicksand, sans-serif;
@@ -105,19 +106,9 @@ h5 {
 a:hover {
 	color:#0D0D0D;
 } */
-a.thisPage {
-	text-decoration:underline;
-}
-nav a {
-	letter-spacing:1px;
-}
-nav a:hover,nav a:visited:hover {
-	text-decoration:underline;
-}
 nav,nav a,nav a:visited {
 	color:black;
 	font-family:inconsolata,monospace;
-	font-size:18px;
 	font-style:normal;
 	text-decoration:none;
 }
@@ -130,8 +121,14 @@ nav ul li, nav ul li a {
 	margin:10px 0;
 }
 nav ul li ul li, nav ul li ul li a {
-	font-size:13px;
+	font-size:95%;
 	margin-left:5px;
+}
+nav ul li ul li:first-child:before {
+	content:"{";
+}
+nav ul li ul li:last-child:after {
+	content:" }";
 }
 article {
 	line-height:140%;
@@ -194,6 +191,7 @@ blockquote {
 #git {
 	float:right;
 	text-align:right;
+	font-size:80%;
 }
 #gitlink {
 	border-bottom:dotted black;
@@ -224,13 +222,12 @@ code,.quote {
 #con {
 	padding:30px;
 }
-#h0::after {
+.blink {
 	-webkit-animation:1s blink step-end infinite;
 	-moz-animation:1s blink step-end infinite;
 	-ms-animation:1s blink step-end infinite;
 	-o-animation:1s blink step-end infinite;
 	animation:1s blink step-end infinite;
-	content:"▊";
 }
 @keyframes "blink" {
 	from, to {
@@ -273,6 +270,9 @@ code,.quote {
 	}
 }
 /* entangled elements */
+nav a:hover,nav a:visited:hover,a.thisPage {
+	text-decoration:underline;
+}
 body,h5,p code {
 	font-size:14px;
 }
@@ -369,38 +369,13 @@ nav {
 	  font-size:45px;
 	}
 }
-@media screen and (max-width:500px) {
-	#banner {
-	  font-size:40px;
-	}
-}
 @media screen and (max-width:400px) {
 	#banner {
 		font-size:40px;
 		padding-bottom:10px;
 	}
-	#git {
-		font-size:30px;
-	}
 	#page {
 		padding:10px;
-	}
-}
-@media screen and (max-width:320px) {
-	#h0 {
-		margin-bottom:15px;
-	}
-	#git {
-		text-align:left;
-	}
-	#h0,#git {
-		float:none;
-		max-width:none;
-	}
-}
-@media screen and (max-width:200px) {
-	#h0::after {
-	  display:none;
 	}
 }
 </style>
@@ -416,7 +391,7 @@ print '</a>
 </div>
 <div id=git>
 <a href="'${gitlink}'" target="_blank">edit on
-↝ git
+↝ git..<span class="blink">▊</span>
 </a>
 </div>
 </div>'
