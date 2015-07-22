@@ -84,7 +84,6 @@ h1 {
 }
 h2 {
 	font-size:1.5em;
-	padding-left:1em;
 }
 h3 {
 	font-size:1.3em;
@@ -265,7 +264,7 @@ nav ul li ul li:first-child:before,nav ul li ul li:last-child:after {
 body,p code {
 	font-size:15px;
 }
-h3,blockquote {
+h2,blockquote {
 	padding-left:1em;
 }
 #h0,#git {
