@@ -65,7 +65,6 @@ function page_head {
 	url("/files/fontfiles/inconsolata-webfont.ttf") format("truetype"),
 	url("/files/fontfiles/inconsolata-webfont.svg#webfont") format("svg");
 }
-
 html {
 	color:black;
 	background:whitesmoke;
@@ -77,7 +76,6 @@ body {
 	font-weight:normal;
 	margin:0;
 }
-
 p {
 	text-align:justify;
 }
@@ -97,18 +95,12 @@ h4 {
 h5 {
 	border-bottom:1px dotted black;
 }
-/* a,a:visited {
-	color:#404040;
-	text-shadow:1px 1px 0 #FFF;
-}
-a:hover {
-	color:#0D0D0D;
-} */
 nav,nav a,nav a:visited {
 	color:black;
 	font-family:inconsolata,monospace;
 	font-style:normal;
 	text-decoration:none;
+	font-size:1.2em;
 }
 nav ul, nav ul a {
 	text-decoration:none;
@@ -120,7 +112,7 @@ nav ul li, nav ul li a {
 }
 nav ul li ul li, nav ul li ul li a {
 	font-size:90%;
-	margin-top:0.8em;
+	margin-top:0.7em;
 	margin-left:0.5em;
 }
 nav ul li ul li:first-child:before {
@@ -134,9 +126,6 @@ article {
 	min-width:20em;
 	max-width:40em;
 }
-/* article {
-	text-align:justify;
-} */
 article ul {
 	padding-left:50px;
 	margin:-4px 0 -2px;
@@ -166,7 +155,6 @@ blockquote {
 .boldy {
 	font-weight:bold;
 }
-
 /* special elements */
 #banner {
 	border-bottom:3px solid black;
@@ -214,7 +202,7 @@ code,.quote {
 #page {
 	background:white;
 	margin:2vw auto;
-	padding:6vw;
+	padding:4vw;
 }
 #con {
 	padding:2.1em;
@@ -274,7 +262,7 @@ nav ul li ul li:first-child:before,nav ul li ul li:last-child:after {
 	font-weight:bold;
 }
 body,p code {
-	font-size:14px;
+	font-size:15px;
 }
 h3,blockquote {
 	padding-left:1em;
@@ -282,7 +270,6 @@ h3,blockquote {
 #h0,#git {
 	max-width:50%;
 }
-
 /* structure */
 nav {
 	max-width:275px;
@@ -301,7 +288,6 @@ nav {
 #paper {
 	min-height:100vh;
 	max-width:600px;
-	margin-top:2vh;
 	margin-left:300px;
 }
 
@@ -375,9 +361,9 @@ nav {
 		font-size:40px;
 	}
 }
-@media screen and (max-width:320px) {
+@media screen and (max-width:350px) {
 	#banner {
-		font-size:32px;
+		font-size:35px;
 	}
 }
 </style>
