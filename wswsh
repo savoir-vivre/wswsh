@@ -1,24 +1,27 @@
-#!/usr/bin/mksh
-# 2013-2014 - wswsh - Ypnose - http://ypnose.org
-# Copyright (c) 2013-2014, Ypnose - All rights reserved.
+#!/home/savoirvi/bin/mksh
+# Ypnose - http://ywstd.fr
+# Copyright (c) 2013-2015, Ypnose - All rights reserved.
 # This project is under BSD (3-Clause) License
 # See LICENSE for license details.
 #set -x
 RAC="$1"
 
+function prynt_err {
+	print -u2 "ERR:" "$@"
+	exit 1
+}
+
 function parse_config {
 	if [[ -r ${RAC}/wswsh.conf && -r ${RAC}/includes/layout ]]; then
 		. "${RAC}/wswsh.conf" && . "${RAC}/includes/layout"
 	else
-		print -u2 "Missing wswsh.conf / layout"
-		exit 1
+		prynt_err "Missing wswsh.conf / layout"
 	fi
 }
 
 function get_structure {
 	if [[ ! -d ${RAC}/src ]]; then
-		print -u2 "src doesn't exist"
-		exit 1
+		prynt_err "src doesn't exist"
 	fi
 	[[ ! -d ${RAC}/dest ]] && mkdir "${RAC}/dest"
 
@@ -34,38 +37,26 @@ function get_structure {
 	fi
 }
 
-function do_backup {
-	if [[ -n $BACKUP ]]; then
-		if [[ -d $BACKUP ]]; then
-			WHEN="$(date "+%Y-%m-%d")"
-			rm -R "${BACKUP}/src_"* && cp -R "${RAC}/src" "${BACKUP}/src_${WHEN}"
-			rm -R "${BACKUP}/includes_"* && cp -R "${RAC}/includes" "${BACKUP}/includes_${WHEN}"
-			cp "${RAC}/wswsh" "${BACKUP}/wswsh" && cp "${RAC}/wswsh.conf" "${BACKUP}/wswsh.conf"
-		else
-			print -u2 "Directory doesn't exist!"
-		fi
-	fi
-}
-
 function get_interp {
-	# We got the title from <h1> or # (for markdown). Add what you want...
 	case $INTERP in
 		# We can't use 'print " | "$0' because the function is used two times.
-		smu) function pagetit { awk '/\#/{gsub(/^[\t ]+|#[\t ]+/,"");print $0;exit}' "$1"; };;
-		ahrf.awk) function pagetit { awk '/^:\ /{gsub(/^:\ |\ :/,"");print $0;exit}' "$1"; };;
-		*) function pagetit { awk '/<h1>/{gsub(/^[\t ]+|<h1>|<\/h1>.*/,"");print $0;exit}' "$1"; };;
+		*ahrf*) function pagetit { awk '/^[\t ]*:/{gsub(/^[\t ]*:[\t ]*|[\t ]*:[\t ]*$/,"");print $0;exit}' "$1"; };;
+		smu) function pagetit { awk '/\#/{gsub(/^[\t ]*#[\t ]*/,"");print $0;exit}' "$1"; };;
+		*) function pagetit { awk '/<h1>/{gsub(/^[\t ]*<h1>[\t ]*|[\t ]*<\/h1>.*/,"");print $0;exit}' "$1"; };;
 	esac
 }
 
-function gen_page_skel {
+function pagetit_html { awk '/<h1>/{gsub(/^[\t ]*<h1>[\t ]*|[\t ]*<\/h1>.*/,"");print $0;exit}' "$1"; }
+
+function gen_page {
 	if [[ -n $CSSF && -r ${RAC}/src/${CSSF} ]]; then
+		# Launch layout custom stylesheet
 		CSSV=1
 		cp "${RAC}/src/${CSSF}" "${RAC}/dest/${CSSF}"
 	fi
 
-	if [[ -n $INTERP && -z $(whence $INTERP) ]]; then
-		print -u2 "$INTERP not found"
-		exit 1
+	if [[ -n $INTERP && -z $(whence -p $INTERP) ]]; then
+		prynt_err "$INTERP not found"
 	fi
 	print "Generating pages..."
 	get_interp
@@ -79,32 +70,44 @@ function gen_page_skel {
 		"${INTERP:-cat}" "$FILE" >>"$FILEXPORT"
 		RET=$?
 		if (( RET != 0 )); then
-			print -u2 "Generating $FILE failed"
-			exit 1
+			prynt_err "Generating $FILE failed"
 		fi
 		page_foot >>"$FILEXPORT"
 		(( COPY == 1 )) && cp "src/${FILENOSRC}" "dest/${FILENOSRC}"
 	done
 
+	find "src" -type f -iname "*.wshtml" | while IFS=$'\n' read -r FILE; do
+		FILENOSRC="${FILE#*/}"
+		FILENOEXT="${FILENOSRC%%.*}"
+		FILEXPORT="dest/${FILENOEXT}.html"
+		FILETIT="$(pagetit_html "$FILE")"
+		page_head >"$FILEXPORT"
+		cat "$FILE" >>"$FILEXPORT"
+		RET=$?
+		if (( RET != 0 )); then
+			prynt_err "Generating $FILE failed"
+		fi
+		page_foot >>"$FILEXPORT"
+	done
+
 	# RSS / Atom
-	if [[ -n $FEED ]] && (( FEED == 1 )); then
-		[[ -n $ARTD && ! -d $ARTD ]] && print -u2 "The article directory is missing!" && exit 1
+	if (( FEED == 1 )); then
+		[[ -n $ARTD && ! -d $ARTD ]] && prynt_err "The article directory is missing!"
 		# XML date, emulates $(date --rfc-3339=seconds) from GNU date.
 		RDAT=$(LC_ALL=C date "+%Y-%m-%dT%H:%M:%SZ")
 		RSSF="dest/${RSSDIR}atom.xml"
 		# Tip: date format -> year-month-day
 		SORD="$(find "${ARTD:-src/blog/}" -mindepth 2 -type f -iname "*.${EXT:-txt}" | while IFS=$'\n' read -r ART; do \
-			awk '/<!--[\t ]*DATE/{gsub(/^[\t ]+|<!--[\t ]*DATE *: *|[\t ]*-->.*/,"");printf "%s",$0;exit}' $ART; \
+			awk '/<!--[\t ]*DATE/{gsub(/^[\t ]*<!--[\t ]*DATE *: *|[\t ]*-->.*/,"");printf "%s",$0;exit}' $ART; \
 			print " $ART"; done | sort -nr | awk '{gsub(/201[2-8]-[0-1][0-9]-[0-3][0-9] /,"");print}')"
 		if [[ -z $SORD ]]; then
-			print -u2 "No articles found inside ${ARTD:-src/blog/}"
-			exit 1
+			prynt_err "No articles found inside ${ARTD:-src/blog/}"
 		fi
 		gen_site_xml >"$RSSF"
 		print -- "$SORD" | while IFS=$'\n' read -r FILE; do
-			# Don't need to enable a specific hour, let's assume I wrote the pages at midnight.
-			RDADAT="$(awk '/<!--[\t ]*DATE/{gsub(/^[\t ]+|<!--[\t ]*DATE *: *|[\t ]*-->.*/,"");print $0"T00:00:00Z";exit}' $FILE)"
-			RSSDES="$(awk '/<!--[\t ]*DESC/{gsub(/^[\t ]+|<!--[\t ]*DESC *: *|[\t ]*-->.*/,"");print $0;exit}' $FILE)"
+			# Don't need to enable a specific hour, let's assume I wrote the pages at midday.
+			RDADAT="$(awk '/<!--[\t ]*DATE/{gsub(/^[\t ]*<!--[\t ]*DATE *: *|[\t ]*-->.*/,"");print $0"T12:00:00Z";exit}' $FILE)"
+			RSSDES="$(awk '/<!--[\t ]*DESC/{gsub(/^[\t ]*<!--[\t ]*DESC *: *|[\t ]*-->.*/,"");print $0;exit}' $FILE)"
 			RSSTNOSRC="${FILE#*/}"
 			RSSTNOEXT="${RSSTNOSRC%%.*}"
 			FILETIT="$(pagetit "$FILE")"
@@ -119,21 +122,8 @@ function gen_page_skel {
 			print "dest/${LINEH#*/} already exists"
 			continue
 		fi
-		cp "$LINEH" "dest/${LINEH#*/}"
+		cp -- "$LINEH" "dest/${LINEH#*/}"
 	done
-
-	# Test if the file exists. Then find it/them and copy it/them to dest (supports multiple files with same name).
-	if [[ -n $FIL ]]; then
-		for y in $FIL; do
-			if [[ -z $(find "src" -type f -name "$y") ]]; then
-				print -- "$y is missing"
-				continue
-			fi
-			find "src" -type f -name "$y" | while IFS=$'\n' read -r LINEF; do
-				cp "src/${LINEF#*/}" "dest/${LINEF#*/}"
-			done
-		done
-	fi
 
 	cd ..
 	TOT=$(find "${RAC}/dest" -type f | wc -l)
@@ -141,13 +131,12 @@ function gen_page_skel {
 }
 
 if [[ -z $1 ]]; then
-	print -u2 "usage: wswsh [website_root]"
-	exit 1
+	print "usage: ${0##*/} [website_root]"
+	exit
 fi
 
 parse_config
-#do_backup
 get_structure
-gen_page_skel
+gen_page
 
 exit

@@ -7,13 +7,14 @@ It has many advantages:
 
   * Lightweight
   * Only requires a shell + UNIX utilities
+  * Compatible with [ahrf](https://github.com/Ypnose/ahrf)
   * Markdown / [smu](https://github.com/Gottox/smu) support
   * Easily "hackable" with external scripts / interpreters
   * Less than 140 LOC (without layouts)
   * Human readable configuration
   * Atom 1.0 Feed support
 
-*You can read another howto with examples [here](http://blog.ypnose.org/2013/blogging-shell.html) (might be useful).*
+*You can read another howto with examples [here](http://blog.ywstd.fr/2013/blogging-shell.html) (might be useful).*
 
 How to use it?
 --------------
@@ -139,8 +140,17 @@ Website(s)
 ----------
 
 Powering:
-  * http://blog.ypnose.org
+  * http://blog.ywstd.fr
   * https://cosmofox.net/blog/
+  * http://savoirvivre.intraaktion.de
 
 If you decided to use wswsh for your website(s), please contact me. I'll
 add it in the README.
+
+"scripts" folder
+--------------
+
+The scripts in this folder mainly serve the purpose to automatically
+create a menu for navigation and to add a link to the respective github
+page of files which are not the index of a directory, as needed in our
+project "Savoir vivre". You can see the result here: [intraaktion.de](http://savoirvivre.intraaktion.de/00_home/archiv.html)

@@ -1,25 +1,24 @@
 # Makefile for wswsh - see LICENSE for copyright and license
-# 2013, 2014 - Ypnose - http://ypnose.org
+# Ypnose - http://ywstd.fr
 
 SOFT = wswsh
-DEST = ${PWD}/dest
+DEST = $${PWD}/dest
 
 all: clean gen
-
-wswsh.conf:
-	@echo Creating config from wswsh.conf.default
-	@cp wswsh.conf.default $@
 
 clean:
 	@echo Removing dest
 	@rm -rf ${DEST}
 
 gen:
-	@./${SOFT} ${PWD}
+	@./${SOFT} $${PWD}
 
-purge: wswsh.conf ${DEST}
-	@echo Purging the config and dest
-	@rm wswsh.conf
-	@rm -r ${DEST}
+purge: clean
+	@echo Purging the config
+	@rm -f wswsh.conf
+
+wswsh.conf: wswsh.conf.default
+	@echo Creating config from wswsh.conf.default
+	@cp wswsh.conf.default wswsh.conf
 
 .PHONY: all clean gen purge
