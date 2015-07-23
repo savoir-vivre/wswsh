@@ -1,16 +1,13 @@
 #!/home/savoirvi/bin/mksh
 source ./wswsh.conf
 
-owner="savoir-vivre"
-branch="master"
-
 find dest/ -type f ! -name *index.html -name *.html \
 | while read file; do
 	htmlfile="$(print "$file" | cut -d '/' -f 2- )"
 	txtpath="${htmlfile%.*}"
 	txtfile="$(find src/ -type f -wholename src/"$txtpath".* | cut -d '/' -f 2- )"
 	txtlink="$(print "$txtfile" | sed 's/\ /\%20/')"
-	gitlink="https://github.com/${owner}/${WURL}/tree/${branch}/${txtlink}"
+	gitlink_text="${gitlink}${txtlink}"
 
 	awk '{
 		if ( match($0, /<article>/, arr) ) {
@@ -18,7 +15,7 @@ find dest/ -type f ! -name *index.html -name *.html \
 			print "<div id=gitlink>"
 			print "Diese Textdatei liegt auf GitHub. Sie ist Produkt fortlaufender Arbeit und offen zur Mitgestaltung:"
 			print "<br>"
-			print "<a href=\"'${gitlink}'\" target=\"_blank\">'${gitlink}'</a>"
+			print "<a href=\"'${gitlink_text}'\" target=\"_blank\">'${gitlink_text}'</a>"
 			print "</div>"
 		}
 		else {

@@ -12,14 +12,377 @@ function page_head {
 	else
 		print "\t<title>${FILETIT}</title>"
 	fi
-	print '</head>
+	print '<style type="text/css">
+/* Thanks to Ypnose for sharing. */
+/* Check out his website: http://ywstd.fr/ */
+@font-face {
+	font-family: "quicksand";
+	src: url("/files/fontfiles/Quicksand-Bold-webfont.eot");
+	src: url("/files/fontfiles/Quicksand-Bold-webfont.eot?#iefix") format("embedded-opentype"),
+	url("/files/fontfiles/Quicksand-Bold-webfont.woff2") format("woff2"),
+	url("/files/fontfiles/Quicksand-Bold-webfont.woff") format("woff"),
+	url("/files/fontfiles/Quicksand-Bold-webfont.ttf") format("truetype"),
+	url("/files/fontfiles/Quicksand-Bold-webfont.svg#quicksandbold") format("svg");
+	font-weight: bold;
+}
+@font-face {
+	font-family: "quicksand";
+	src: url("/files/fontfiles/Quicksand-BoldItalic-webfont.eot");
+	src: url("/files/fontfiles/Quicksand-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"),
+	url("/files/fontfiles/Quicksand-BoldItalic-webfont.woff2") format("woff2"),
+	url("/files/fontfiles/Quicksand-BoldItalic-webfont.woff") format("woff"),
+	url("/files/fontfiles/Quicksand-BoldItalic-webfont.ttf") format("truetype"),
+	url("/files/fontfiles/Quicksand-BoldItalic-webfont.svg#quicksandbold_italic") format("svg");
+	font-weight: bold;
+	font-style: italic;
+}
+@font-face {
+	font-family: "quicksand";
+	src: url("/files/fontfiles/Quicksand-Italic-webfont.eot");
+	src: url("/files/fontfiles/Quicksand-Italic-webfont.eot?#iefix") format("embedded-opentype"),
+	url("/files/fontfiles/Quicksand-Italic-webfont.woff2") format("woff2"),
+	url("/files/fontfiles/Quicksand-Italic-webfont.woff") format("woff"),
+	url("/files/fontfiles/Quicksand-Italic-webfont.ttf") format("truetype"),
+	url("/files/fontfiles/Quicksand-Italic-webfont.svg#quicksanditalic") format("svg");
+	font-style: italic;
+}
+@font-face {
+	font-family: "quicksand";
+	src: url("/files/fontfiles/Quicksand-Regular-webfont.eot");
+	src: url("/files/fontfiles/Quicksand-Regular-webfont.eot?#iefix") format("embedded-opentype"),
+	url("/files/fontfiles/Quicksand-Regular-webfont.woff2") format("woff2"),
+	url("/files/fontfiles/Quicksand-Regular-webfont.woff") format("woff"),
+	url("/files/fontfiles/Quicksand-Regular-webfont.ttf") format("truetype"),
+	url("/files/fontfiles/Quicksand-Regular-webfont.svg#quicksandregular") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "inconsolata";
+	src: url("/files/fontfiles/inconsolata-webfont.eot");
+	src: url("/files/fontfiles/inconsolata-webfont.eot?#iefix") format("embedded-opentype"),
+	url("/files/fontfiles/inconsolata-webfont.woff") format("woff"),
+	url("/files/fontfiles/inconsolata-webfont.ttf") format("truetype"),
+	url("/files/fontfiles/inconsolata-webfont.svg#webfont") format("svg");
+}
+html {
+	color:black;
+	background:whitesmoke;
+	min-width:320px;
+}
+body {
+	font-family:quicksand, sans-serif;
+	font-style:normal;
+	font-weight:normal;
+	margin:0;
+}
+p {
+	text-align:justify;
+}
+h1 {
+	font-size:1.7em;
+}
+h2 {
+	font-size:1.5em;
+}
+h3 {
+	font-size:1.3em;
+	padding-left:2em;
+}
+h4 {
+	text-decoration:underline;
+}
+h5 {
+	border-bottom:1px dotted black;
+}
+nav,nav a,nav a:visited {
+	color:black;
+	font-family:inconsolata,monospace;
+	font-style:normal;
+	text-decoration:none;
+	font-size:1.2em;
+}
+nav ul, nav ul a {
+	text-decoration:none;
+	list-style-type:none;
+	padding:0;
+}
+nav ul li, nav ul li a {
+	margin-top:1.2em;
+}
+nav ul li ul li, nav ul li ul li a {
+	font-size:90%;
+	margin-top:0.7em;
+	margin-left:0.5em;
+}
+nav ul li ul li:first-child:before {
+	content:"{";
+}
+nav ul li ul li:last-child:after {
+	content:" }";
+}
+article {
+	line-height:140%;
+	min-width:20em;
+	max-width:40em;
+}
+article ul {
+	padding-left:50px;
+	margin:-4px 0 -2px;
+}
+article ul li {
+	padding:2px 4px;
+}
+pre,p code {
+	border:1px solid grey;
+	background-color:white;
+}
+p code {
+	padding:0 0.25em;
+	white-space:nowrap;
+}
+pre {
+	overflow-x:auto;
+	max-width:95%;
+}
+blockquote {
+	border-left:6px solid #808080;
+	margin-left:30px;
+}
+.centered {
+	text-align:center;
+}
+.boldy {
+	font-weight:bold;
+}
+/* special elements */
+#banner {
+	border-bottom:3px solid black;
+	font-size:100px;
+	padding-bottom:0.25em;
+	line-height:90%;
+	clear:both;
+	overflow:hidden;
+}
+#banner a {
+	color:black;
+	text-decoration:none;
+	white-space:pre;
+}
+#h0 {
+	float:left;
+	text-align:left;
+}
+#git {
+	float:right;
+	text-align:right;
+	font-size:80%;
+}
+#gitlink {
+	border-bottom:dotted black;
+	padding-bottom:1em;
+	font-size:0.9em;
+	font-style:italic;
+	}
+#gitlink a {
+	color:black;
+	font-family:inconsolata,monospace;
+	font-size:0.9em;
+	word-wrap:break-word;
+	text-decoration:none;
+}
+code,.quote {
+	font-family:inconsolata, monospace;
+}
+.quote {
+	padding-left:0.7em;
+	margin:0.7em;
+	border-left:1px dotted #808080;
+}
+#page {
+	background:white;
+	margin:2vw auto;
+	padding:4vw;
+}
+#con {
+	padding:2.1em 0;
+}
+.blink {
+	-webkit-animation:1s blink step-end infinite;
+	-moz-animation:1s blink step-end infinite;
+	-ms-animation:1s blink step-end infinite;
+	-o-animation:1s blink step-end infinite;
+	animation:1s blink step-end infinite;
+}
+@keyframes "blink" {
+	from, to {
+		color:transparent;
+	}
+	50% {
+		color:black;
+	}
+}
+@-moz-keyframes blink {
+	from, to {
+		color:transparent;
+	}
+	50% {
+		color:black;
+	}
+}
+@-webkit-keyframes "blink" {
+	from, to {
+		color:transparent;
+	}
+	50% {
+		color:black;
+	}
+}
+@-ms-keyframes "blink" {
+	from, to {
+		color:transparent;
+	}
+	50% {
+		color:black;
+  }
+}
+@-o-keyframes "blink" {
+	from, to {
+		color:transparent;
+	}
+	50% {
+		color:black;
+	}
+}
+/* entangled elements */
+nav a:hover,nav a:visited:hover,a.thisPage {
+	text-decoration:underline;
+}
+nav ul li ul li:first-child:before,nav ul li ul li:last-child:after {
+	font-weight:bold;
+}
+body,p code {
+	font-size:15px;
+}
+h2,blockquote {
+	padding-left:1em;
+}
+#h0,#git {
+	max-width:50%;
+}
+/* structure */
+nav {
+	max-width:275px;
+	word-break:break-all;
+}
+#page {
+	max-width:1000px;
+}
+#con {
+	clear:both;
+	overflow:hidden;
+}
+#nav {
+	float:left;
+}
+#paper {
+	min-height:100vh;
+	max-width:600px;
+	margin-left:300px;
+}
+
+/* responsiveness */
+@media screen and (max-width:1053px) {
+	#page {
+	  max-width:85%;
+	}
+}
+@media screen and (max-width:850px) {
+	#banner {
+	  font-size:90px;
+	}
+}
+@media screen and (max-width:800px) {
+	#banner {
+	  font-size:85px;
+	}
+}
+@media screen and (max-width:750px) {
+	#banner {
+	  font-size:80px;
+	}
+}
+@media screen and (max-width:700px) {
+	nav {
+		max-width:none;
+		position:static;
+		height:auto;
+		padding-bottom:2em;
+	}
+	nav ul li {
+		display:inline-table;
+		min-width:49%;
+	}
+	nav ul li ul li {
+		display:block;
+	}
+	#con {
+		padding:0;
+	}
+	#paper {
+		margin-left:0;
+	}
+	#banner {
+	  font-size:75px;
+	}
+}
+@media screen and (max-width:650px) {
+	#banner {
+	  font-size:65px;
+	}
+}
+@media screen and (max-width:600px) {
+	#banner {
+	  font-size:60px;
+	}
+}
+@media screen and (max-width:550px) {
+	#banner {
+	  font-size:55px;
+	}
+}
+@media screen and (max-width:500px) {
+	#banner {
+	  font-size:45px;
+	}
+}
+@media screen and (max-width:400px) {
+	#banner {
+		font-size:40px;
+	}
+}
+@media screen and (max-width:350px) {
+	#banner {
+		font-size:35px;
+	}
+}
+</style>
+</head>
 <body>'
 
-printf '%s' "<div id=h0>
+printf '%s' "<div id=page>
+<div id=banner>
+<div id=h0>
 <a href="/">"
-print "${WTIT}" | tr ' ' "\n"
-print "</a>
-</div>"
+printf '%s' "${WTIT}" | tr ' ' "\n"
+print '</a>
+</div>
+<div id=git>
+<a href="'${gitlink}'" target="_blank">edit on
+↝ git..<span class="blink">|</span>
+</a>
+</div>
+</div>'
 print '<div id=con>
 <div>FOO</div>
 '
@@ -27,6 +390,7 @@ print '<div id=con>
 
 function page_foot {
 	print '</article>
+</div>
 </div>
 </div>
 \t<!-- Page generated by wswsh 1.2 / '"$(print ${SHELL##*/})"' - '"$(LC_ALL=C date)"' -->
