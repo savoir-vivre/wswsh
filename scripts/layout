@@ -125,6 +125,7 @@ nav ul li ul li:last-child:after {
 article {
 	line-height:140%;
 	max-width:40em;
+	margin-top:1.4em;
 }
 article ul {
 	padding-left:50px;
