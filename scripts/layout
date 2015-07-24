@@ -180,6 +180,7 @@ blockquote {
 #gitlink {
 	font-size:0.9em;
 	font-family:inconsolata,monospace;
+	color:gray;
 	}
 #gitlink::before {
 	content:"/*"
