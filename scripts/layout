@@ -76,6 +76,9 @@ body {
 	font-weight:normal;
 	margin:0;
 }
+a {
+	word-break:break-all;
+}
 p {
 	text-align:justify;
 }
