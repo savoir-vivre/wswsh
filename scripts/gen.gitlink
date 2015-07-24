@@ -15,7 +15,7 @@ find dest/ -type f ! -name *index.html -name *.html \
 			print "<div id=gitlink>"
 			print "Diese Textdatei liegt auf GitHub. Sie ist Produkt fortlaufender Arbeit und offen zur Mitgestaltung:"
 			print "<br>"
-			print "<a href=\"'${gitlink_text}'\" target=\"_blank\">'${gitlink_text}'</a>"
+			print "<a href=\"'${gitlink_text}'\" target=\"_blank\">↝ '${gitlink_text}'</a>"
 			print "</div>"
 		}
 		else {

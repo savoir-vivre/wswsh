@@ -5,7 +5,7 @@ function page_head {
 <head>
 	<meta charset="utf-8" />
 	<meta name="author" content="savoir_vivre" />
-	<meta name=viewport content="width=device-width, initial-scale=1">'
+	<meta name=viewport content="width=device-width,initial-scale=1">'
 	(( CSSV == 1 )) && print "\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/${CSSF}\" />"
 	if [[ -n $WTIT ]]; then
 		print "\t<title>${WTIT}${FILETIT:+ | }${FILETIT}</title>"
@@ -16,51 +16,51 @@ function page_head {
 /* Thanks to Ypnose for sharing. */
 /* Check out his website: http://ywstd.fr/ */
 @font-face {
-	font-family: "quicksand";
-	src: url("/files/fontfiles/Quicksand-Bold-webfont.eot");
-	src: url("/files/fontfiles/Quicksand-Bold-webfont.eot?#iefix") format("embedded-opentype"),
+	font-family:"quicksand";
+	src:url("/files/fontfiles/Quicksand-Bold-webfont.eot");
+	src:url("/files/fontfiles/Quicksand-Bold-webfont.eot?#iefix") format("embedded-opentype"),
 	url("/files/fontfiles/Quicksand-Bold-webfont.woff2") format("woff2"),
 	url("/files/fontfiles/Quicksand-Bold-webfont.woff") format("woff"),
 	url("/files/fontfiles/Quicksand-Bold-webfont.ttf") format("truetype"),
 	url("/files/fontfiles/Quicksand-Bold-webfont.svg#quicksandbold") format("svg");
-	font-weight: bold;
+	font-weight:bold;
 }
 @font-face {
-	font-family: "quicksand";
-	src: url("/files/fontfiles/Quicksand-BoldItalic-webfont.eot");
-	src: url("/files/fontfiles/Quicksand-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"),
+	font-family:"quicksand";
+	src:url("/files/fontfiles/Quicksand-BoldItalic-webfont.eot");
+	src:url("/files/fontfiles/Quicksand-BoldItalic-webfont.eot?#iefix") format("embedded-opentype"),
 	url("/files/fontfiles/Quicksand-BoldItalic-webfont.woff2") format("woff2"),
 	url("/files/fontfiles/Quicksand-BoldItalic-webfont.woff") format("woff"),
 	url("/files/fontfiles/Quicksand-BoldItalic-webfont.ttf") format("truetype"),
 	url("/files/fontfiles/Quicksand-BoldItalic-webfont.svg#quicksandbold_italic") format("svg");
-	font-weight: bold;
-	font-style: italic;
+	font-weight:bold;
+	font-style:italic;
 }
 @font-face {
-	font-family: "quicksand";
-	src: url("/files/fontfiles/Quicksand-Italic-webfont.eot");
-	src: url("/files/fontfiles/Quicksand-Italic-webfont.eot?#iefix") format("embedded-opentype"),
+	font-family:"quicksand";
+	src:url("/files/fontfiles/Quicksand-Italic-webfont.eot");
+	src:url("/files/fontfiles/Quicksand-Italic-webfont.eot?#iefix") format("embedded-opentype"),
 	url("/files/fontfiles/Quicksand-Italic-webfont.woff2") format("woff2"),
 	url("/files/fontfiles/Quicksand-Italic-webfont.woff") format("woff"),
 	url("/files/fontfiles/Quicksand-Italic-webfont.ttf") format("truetype"),
 	url("/files/fontfiles/Quicksand-Italic-webfont.svg#quicksanditalic") format("svg");
-	font-style: italic;
+	font-style:italic;
 }
 @font-face {
-	font-family: "quicksand";
-	src: url("/files/fontfiles/Quicksand-Regular-webfont.eot");
-	src: url("/files/fontfiles/Quicksand-Regular-webfont.eot?#iefix") format("embedded-opentype"),
+	font-family:"quicksand";
+	src:url("/files/fontfiles/Quicksand-Regular-webfont.eot");
+	src:url("/files/fontfiles/Quicksand-Regular-webfont.eot?#iefix") format("embedded-opentype"),
 	url("/files/fontfiles/Quicksand-Regular-webfont.woff2") format("woff2"),
 	url("/files/fontfiles/Quicksand-Regular-webfont.woff") format("woff"),
 	url("/files/fontfiles/Quicksand-Regular-webfont.ttf") format("truetype"),
 	url("/files/fontfiles/Quicksand-Regular-webfont.svg#quicksandregular") format("svg");
-	font-weight: normal;
-	font-style: normal;
+	font-weight:normal;
+	font-style:normal;
 }
 @font-face {
-	font-family: "inconsolata";
-	src: url("/files/fontfiles/inconsolata-webfont.eot");
-	src: url("/files/fontfiles/inconsolata-webfont.eot?#iefix") format("embedded-opentype"),
+	font-family:"inconsolata";
+	src:url("/files/fontfiles/inconsolata-webfont.eot");
+	src:url("/files/fontfiles/inconsolata-webfont.eot?#iefix") format("embedded-opentype"),
 	url("/files/fontfiles/inconsolata-webfont.woff") format("woff"),
 	url("/files/fontfiles/inconsolata-webfont.ttf") format("truetype"),
 	url("/files/fontfiles/inconsolata-webfont.svg#webfont") format("svg");
@@ -71,7 +71,7 @@ html {
 	min-width:320px;
 }
 body {
-	font-family:quicksand, sans-serif;
+	font-family:quicksand,sans-serif;
 	font-style:normal;
 	font-weight:normal;
 	margin:0;
@@ -96,21 +96,21 @@ h5 {
 	border-bottom:1px dotted black;
 }
 nav,nav a,nav a:visited {
-	color:black;
+	color:inherit;
 	font-family:inconsolata,monospace;
 	font-style:normal;
 	text-decoration:none;
 	font-size:1.2em;
 }
-nav ul, nav ul a {
+nav ul,nav ul a {
 	text-decoration:none;
 	list-style-type:none;
 	padding:0;
 }
-nav ul li, nav ul li a {
+nav ul li,nav ul li a {
 	margin-top:1.2em;
 }
-nav ul li ul li, nav ul li ul li a {
+nav ul li ul li,nav ul li ul li a {
 	font-size:90%;
 	margin-top:0.7em;
 	margin-left:0.5em;
@@ -123,7 +123,6 @@ nav ul li ul li:last-child:after {
 }
 article {
 	line-height:140%;
-	min-width:20em;
 	max-width:40em;
 }
 article ul {
@@ -165,7 +164,7 @@ blockquote {
 	overflow:hidden;
 }
 #banner a {
-	color:black;
+	color:inherit;
 	text-decoration:none;
 	white-space:pre;
 }
@@ -179,20 +178,22 @@ blockquote {
 	font-size:80%;
 }
 #gitlink {
-	border-bottom:dotted black;
-	padding-bottom:1em;
 	font-size:0.9em;
-	font-style:italic;
-	}
-#gitlink a {
-	color:black;
 	font-family:inconsolata,monospace;
-	font-size:0.9em;
+	}
+#gitlink::before {
+	content:"/*"
+}
+#gitlink::after {
+	content:"*/"
+}
+#gitlink a {
+	color:inherit;
 	word-wrap:break-word;
 	text-decoration:none;
 }
 code,.quote {
-	font-family:inconsolata, monospace;
+	font-family:inconsolata,monospace;
 }
 .quote {
 	padding-left:0.7em;
@@ -215,43 +216,43 @@ code,.quote {
 	animation:1s blink step-end infinite;
 }
 @keyframes "blink" {
-	from, to {
+	from,to {
 		color:transparent;
 	}
 	50% {
-		color:black;
+		color:inherit;
 	}
 }
 @-moz-keyframes blink {
-	from, to {
+	from,to {
 		color:transparent;
 	}
 	50% {
-		color:black;
+		color:inherit;
 	}
 }
 @-webkit-keyframes "blink" {
-	from, to {
+	from,to {
 		color:transparent;
 	}
 	50% {
-		color:black;
+		color:inherit;
 	}
 }
 @-ms-keyframes "blink" {
-	from, to {
+	from,to {
 		color:transparent;
 	}
 	50% {
-		color:black;
+		color:inherit;
   }
 }
 @-o-keyframes "blink" {
-	from, to {
+	from,to {
 		color:transparent;
 	}
 	50% {
-		color:black;
+		color:inherit;
 	}
 }
 /* entangled elements */
@@ -271,6 +272,9 @@ h2,blockquote {
 	max-width:50%;
 }
 /* structure */
+body {
+	min-width:22.73em;
+}
 nav {
 	max-width:275px;
 	word-break:break-all;
@@ -280,7 +284,7 @@ nav {
 }
 #con {
 	clear:both;
-	overflow:hidden;
+	min-width:20em;
 }
 #nav {
 	float:left;
@@ -290,11 +294,10 @@ nav {
 	max-width:600px;
 	margin-left:300px;
 }
-
 /* responsiveness */
-@media screen and (max-width:1053px) {
+@media screen and (max-width:1136px) {
 	#page {
-	  max-width:85%;
+	  max-width:88%;
 	}
 }
 @media screen and (max-width:850px) {
