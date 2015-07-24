@@ -178,9 +178,10 @@ blockquote {
 	font-size:80%;
 }
 #gitlink {
-	font-size:0.9em;
+	font-size:0.8em;
 	font-family:inconsolata,monospace;
 	color:gray;
+	line-height:125%;
 	}
 #gitlink::before {
 	content:"/*"
