@@ -155,6 +155,12 @@ blockquote {
 	font-weight:bold;
 }
 /* special elements */
+#test {
+	position:absolute;
+	left:0;
+	top:0;
+	color:red;
+}
 #banner {
 	border-bottom:3px solid black;
 	font-size:100px;
@@ -375,7 +381,8 @@ nav {
 </head>
 <body>'
 
-printf '%s' "<div id=page>
+printf '%s' "<div id=test>test page</div>
+<div id=page>
 <div id=banner>
 <div id=h0>
 <a href="/">"
