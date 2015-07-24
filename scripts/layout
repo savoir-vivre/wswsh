@@ -134,21 +134,13 @@ article ul {
 article ul li {
 	padding:2px 4px;
 }
-pre,p code {
+pre {
 	border:1px solid grey;
 	background-color:white;
-}
-p code {
-	padding:0 0.25em;
-	white-space:nowrap;
-}
-pre {
 	overflow-x:auto;
 	max-width:95%;
-}
-blockquote {
-	border-left:6px solid #808080;
-	margin-left:30px;
+	margin:auto;
+	padding:0.75em;
 }
 .centered {
 	text-align:center;
