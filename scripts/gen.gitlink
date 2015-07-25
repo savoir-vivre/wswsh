@@ -1,7 +1,7 @@
 #!/home/savoirvi/bin/mksh
 source ./wswsh.conf
 
-find dest/ -type f ! -name *index.html -name *.html \
+find dest/ -type f ! -name '*index.html' -name '*.html' \
 | while read file; do
 	htmlfile="$(print "$file" | cut -d '/' -f 2- )"
 	txtpath="${htmlfile%.*}"

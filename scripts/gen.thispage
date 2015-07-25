@@ -8,11 +8,11 @@ find src/*/ -type f -name index.txt \
 	sed -i "s/href=\"\/[0-9]*[0-9]*_*$link\/\"/href=\"\/$link\/\" class=\"thisPage\"/Ig" "$dt"
 done
 
-find src/*/ -type f ! -name index.txt -name *.txt \
+find src/*/ -type f ! -name index.txt -name '*.txt' \
 | cut -d '/' -f 2 \
 | awk '!seen[$0]++' \
 | while read dir ; do
-	find src/$dir/ -type f ! -name index.txt -name *.txt \
+	find src/$dir/ -type f ! -name index.txt -name '*.txt' \
 	| while read text; do
 		title=$(print $text | sed 's#.*/##')
 		link=$(print $title | sed 's/txt/html/')

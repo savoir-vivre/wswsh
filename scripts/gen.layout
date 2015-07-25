@@ -7,7 +7,7 @@ $(find src/*/ -type f -name index.txt -o -name index.wshtml 2> /dev/null \
 | while read dir; do
 	printf '%s\n' "\<li\>\<a\ href\=\"\\/$dir\\/\"\>$(print $dir \
 	| tr '-' ' ')\<\\/a\>\\<ul\>\\"
-	find src/$dir/ -type f \( -name *.txt -o -name *.wshtml \) ! -name index.* 2> /dev/null \
+	find src/$dir/ -type f \( -name '*.txt' -o -name '*.wshtml' \) ! -name 'index.*' 2> /dev/null \
 	| sort \
 	| while read file; do
 		t="$(printf '%s' "$file" | sed 's#.*/##')"
