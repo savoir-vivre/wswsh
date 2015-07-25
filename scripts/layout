@@ -130,6 +130,7 @@ article {
 	line-height:140%;
 	max-width:40em;
 	margin-top:1.4em;
+	word-wrap:break-word;
 }
 article ul {
 	padding-left:50px;
