@@ -112,7 +112,8 @@ nav ul,nav ul a {
 	margin:0;
 }
 nav ul li,nav ul li a {
-	margin-top:1.2em;
+	margin-top:0.6em;
+	margin-bottom:0.6em;
 }
 nav ul li ul li,nav ul li ul li a {
 	font-size:90%;
