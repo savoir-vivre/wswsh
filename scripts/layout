@@ -119,6 +119,7 @@ nav ul li ul li,nav ul li ul li a {
 	font-size:90%;
 	margin-top:0.7em;
 	margin-left:0.5em;
+	margin-bottom:0;
 }
 nav ul li ul li:first-child:before {
 	content:"{";
@@ -331,12 +332,12 @@ nav {
 @media screen and (max-width:700px) {
 	#nav {
 		float:none;
+		margin-top:0.6em;
 	}
 	nav {
 		max-width:none;
 		position:static;
 		height:auto;
-		padding-bottom:2em;
 	}
 	nav ul li {
 		display:inline-table;
