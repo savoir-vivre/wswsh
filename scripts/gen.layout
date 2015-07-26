@@ -5,11 +5,11 @@ $(find src/ -type f -name '*.txt' -o -name '*.wshtml' \
 	| awk -F'/[^/]*$' '{print $1}' | sort -u | cut -d '/' -f 2- \
 	| while read dir; do
 		edir="$(print $dir | sed -e 's/\//\\\//g')"
+		tdir="$(print $edir | sed -e 's/-/\ /g')"
 		if [ -f $dir/index.txt ] || [ -f $dir/index.wshtml ]; then
-			printf '%s' "\<li\>\<a\ href\=\"\\/$edir\\/\"\>$(print $edir \
-			| tr '-' ' ')\<\\/a\>"
+			printf '%s' "\<li\>\<a\ href\=\"\\/$edir\\/\"\>$tdir\<\\/a\>"
 		else
-			printf '%s' "\<li\>$(printf '%s' $edir | sed -e 's/-/\ /g')"
+			printf '%s' "\<li\>$tdir"
 		fi
 		CONTENTS="$(find src/$dir/ -maxdepth 1 -type f \( -name '*.txt' -o -name '*.wshtml' \) ! -name 'index.*')"
 		if [ -n "$CONTENTS" ]; then
