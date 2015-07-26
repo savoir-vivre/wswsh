@@ -6,7 +6,7 @@ $(find src/ -type f -name '*.txt' -o -name '*.wshtml' \
 	| while read dir; do
 		edir="$(print $dir | sed -e 's/\//\\\//g')"
 		tdir="$(print $edir | sed -e 's/-/\ /g')"
-		if [ -f $dir/index.txt ] || [ -f $dir/index.wshtml ]; then
+		if [ -f src/$dir/index.txt ] || [ -f src/$dir/index.wshtml ]; then
 			printf '%s' "\<li\>\<a\ href\=\"\\/$edir\\/\"\>$tdir\<\\/a\>"
 		else
 			printf '%s' "\<li\>$tdir"
