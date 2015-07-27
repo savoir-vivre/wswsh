@@ -133,12 +133,8 @@ article {
 	margin-top:1.4em;
 	word-wrap:break-word;
 }
-article ul {
-	padding-left:50px;
-	margin:-4px 0 -2px;
-}
 article ul li {
-	padding:2px 4px;
+	padding-bottom:0.2em;
 }
 pre {
 	border:1px solid grey;
