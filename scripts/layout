@@ -134,7 +134,7 @@ article {
 	word-wrap:break-word;
 }
 article ul li {
-	padding-bottom:0.2em;
+	padding-bottom:0.3em;
 }
 pre {
 	border:1px solid grey;
