@@ -170,7 +170,7 @@ nav ul li ul li:last-child:after {
 	content:" }";
 }
 article {
-	line-height:150%;
+	line-height:1.7em;
 	max-width:40em;
 	margin-top:1.4em;
 	word-wrap:break-word;
