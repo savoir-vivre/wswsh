@@ -246,6 +246,7 @@ pre {
 }
 code,.quote {
 	font-family:inconsolata,monospace;
+	line-height:normal;
 }
 .quote {
 	padding-left:0.7em;
