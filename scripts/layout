@@ -71,7 +71,7 @@ html {
 	min-width:320px;
 }
 body {
-	font-family:quicksand,sans-serif;
+	font-family:inconsolata,monospace;
 	font-style:normal;
 	font-weight:normal;
 	margin:0;
@@ -80,7 +80,6 @@ a {
 	word-break:break-all;
 }
 p {
-	text-align:justify;
 }
 h1 {
 	font-size:1.7em;
@@ -266,6 +265,9 @@ code,.quote {
 	}
 }
 /* entangled elements */
+#banner,h1,h2,h3,h3,h4,h5,h6 {
+	font-family:quicksand,sans-serif;
+}
 nav a:hover,nav a:visited:hover,a.thisPage {
 	text-decoration:underline;
 }
