@@ -58,6 +58,48 @@ function page_head {
 	font-style:normal;
 }
 @font-face {
+	font-family:"arvo";
+	src:url("/files/fontfiles/arvo-bold_201.eot");
+	src:url("/files/fontfiles/arvo-bold_201.eot?#iefix") format("embedded-opentype"),
+	url("/files/fontfiles/arvo-bold_201.woff2") format("woff2"),
+	url("/files/fontfiles/arvo-bold_201.woff") format("woff"),
+	url("/files/fontfiles/arvo-bold_201.ttf") format("truetype"),
+	url("/files/fontfiles/arvo-bold_201.svg#arvobold") format("svg");
+	font-weight:bold;
+}
+@font-face {
+	font-family:"arvo";
+	src:url("/files/fontfiles/arvo-bolditalic_201.eot");
+	src:url("/files/fontfiles/arvo-bolditalic_201.eot?#iefix") format("embedded-opentype"),
+	url("/files/fontfiles/arvo-bolditalic_201.woff2") format("woff2"),
+	url("/files/fontfiles/arvo-bolditalic_201.woff") format("woff"),
+	url("/files/fontfiles/arvo-bolditalic_201.ttf") format("truetype"),
+	url("/files/fontfiles/arvo-bolditalic_201.svg#arvobold_italic") format("svg");
+	font-weight:bold;
+	font-style:italic;
+}
+@font-face {
+	font-family:"arvo";
+	src:url("/files/fontfiles/arvo-italic_201.eot");
+	src:url("/files/fontfiles/arvo-italic_201.eot?#iefix") format("embedded-opentype"),
+	url("/files/fontfiles/arvo-italic_201.woff2") format("woff2"),
+	url("/files/fontfiles/arvo-italic_201.woff") format("woff"),
+	url("/files/fontfiles/arvo-italic_201.ttf") format("truetype"),
+	url("/files/fontfiles/arvo-italic_201.svg#arvoitalic") format("svg");
+	font-style:italic;
+}
+@font-face {
+	font-family:"arvo";
+	src:url("/files/fontfiles/arvo-regular_201.eot");
+	src:url("/files/fontfiles/arvo-regular_201.eot?#iefix") format("embedded-opentype"),
+	url("/files/fontfiles/arvo-regular_201.woff2") format("woff2"),
+	url("/files/fontfiles/arvo-regular_201.woff") format("woff"),
+	url("/files/fontfiles/arvo-regular_201.ttf") format("truetype"),
+	url("/files/fontfiles/arvo-regular_201.svg#arvoregular") format("svg");
+	font-weight:normal;
+	font-style:normal;
+}
+@font-face {
 	font-family:"inconsolata";
 	src:url("/files/fontfiles/inconsolata-webfont.eot");
 	src:url("/files/fontfiles/inconsolata-webfont.eot?#iefix") format("embedded-opentype"),
@@ -71,7 +113,7 @@ html {
 	min-width:320px;
 }
 body {
-	font-family:inconsolata,monospace;
+	font-family:arvo,sans-serif;
 	font-style:normal;
 	font-weight:normal;
 	margin:0;
@@ -80,6 +122,7 @@ a {
 	word-break:break-all;
 }
 p {
+	text-align:justify;
 }
 h1 {
 	font-size:1.7em;
@@ -127,7 +170,7 @@ nav ul li ul li:last-child:after {
 	content:" }";
 }
 article {
-	line-height:140%;
+	line-height:150%;
 	max-width:40em;
 	margin-top:1.4em;
 	word-wrap:break-word;
