@@ -149,6 +149,7 @@ nav,nav a,nav a:visited {
 	font-style:normal;
 	text-decoration:none;
 	font-size:1.2em;
+	word-break:break-all;
 }
 nav ul,nav ul a {
 	text-decoration:none;
@@ -248,7 +249,6 @@ pre {
 	text-decoration:none;
 }
 code,.quote {
-	font-family:inconsolata,monospace;
 	line-height:normal;
 }
 .quote {
@@ -315,6 +315,9 @@ code,.quote {
 #banner,h1,h2,h3,h3,h4,h5,h6 {
 	font-family:quicksand,sans-serif;
 }
+code,.quote,#endlinks {
+	font-family:inconsolata,monospace;
+}
 nav a:hover,nav a:visited:hover,a.thisPage {
 	text-decoration:underline;
 }
@@ -327,16 +330,12 @@ body,p code {
 h2,blockquote {
 	padding-left:1em;
 }
-#h0,#git {
-	max-width:50%;
-}
 /* structure */
 body {
 	min-width:20em;
 }
-nav {
-	max-width:275px;
-	word-break:break-all;
+#h0,#git {
+	max-width:50%;
 }
 #page {
 	max-width:1000px;
@@ -344,6 +343,9 @@ nav {
 #con {
 	clear:both;
 	min-width:17.6em;
+}
+nav {
+	max-width:275px;
 }
 #nav {
 	float:left;
