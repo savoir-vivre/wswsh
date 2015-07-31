@@ -149,6 +149,7 @@ nav,nav a,nav a:visited {
 	font-style:normal;
 	text-decoration:none;
 	font-size:1.2em;
+	word-break:break-all;
 }
 nav ul,nav ul a {
 	text-decoration:none;
@@ -329,16 +330,12 @@ body,p code {
 h2,blockquote {
 	padding-left:1em;
 }
-#h0,#git {
-	max-width:50%;
-}
 /* structure */
 body {
 	min-width:20em;
 }
-nav {
-	max-width:275px;
-	word-break:break-all;
+#h0,#git {
+	max-width:50%;
 }
 #page {
 	max-width:1000px;
@@ -346,6 +343,9 @@ nav {
 #con {
 	clear:both;
 	min-width:17.6em;
+}
+nav {
+	max-width:275px;
 }
 #nav {
 	float:left;
