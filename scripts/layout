@@ -248,7 +248,6 @@ pre {
 	text-decoration:none;
 }
 code,.quote {
-	font-family:inconsolata,monospace;
 	line-height:normal;
 }
 .quote {
@@ -314,6 +313,9 @@ code,.quote {
 /* entangled elements */
 #banner,h1,h2,h3,h3,h4,h5,h6 {
 	font-family:quicksand,sans-serif;
+}
+code,.quote,#endlinks {
+	font-family:inconsolata,monospace;
 }
 nav a:hover,nav a:visited:hover,a.thisPage {
 	text-decoration:underline;
