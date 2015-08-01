@@ -113,7 +113,7 @@ html {
 	min-width:320px;
 }
 body {
-	font-family:arvo,sans-serif;
+	font-family:sans-serif;
 	font-style:normal;
 	font-weight:normal;
 	margin:0;
