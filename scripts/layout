@@ -252,6 +252,7 @@ code,.quote {
 	line-height:normal;
 }
 .quote {
+	font-style:italic;
 	padding-left:0.7em;
 	margin:0.7em;
 	border-left:1px dotted #808080;
