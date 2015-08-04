@@ -342,6 +342,7 @@ body {
 }
 #con {
 	clear:both;
+	overflow:hidden;
 	min-width:17.6em;
 }
 nav {
@@ -351,7 +352,6 @@ nav {
 	float:left;
 }
 #paper {
-	min-height:100vh;
 	max-width:600px;
 	margin-left:300px;
 }
