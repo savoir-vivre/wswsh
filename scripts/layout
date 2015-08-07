@@ -256,6 +256,7 @@ code,.quote {
 	padding-left:0.7em;
 	margin:0.7em;
 	border-left:1px dotted #808080;
+	white-space:pre-wrap;
 }
 #page {
 	background:white;
