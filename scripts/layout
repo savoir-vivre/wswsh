@@ -254,9 +254,10 @@ code,blockquote {
 }
 blockquote {
 	font-style:italic;
-	padding-left:0.7em;
+	padding:0.7em;
 	margin:0.7em;
-	border-left:1px dotted #808080;
+	border-left:0.5em solid gray;
+	background:whitesmoke;
 	white-space:pre-wrap;
 }
 #page {
