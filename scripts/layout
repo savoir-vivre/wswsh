@@ -180,6 +180,12 @@ article {
 	margin-top:1.4em;
 	word-wrap:break-word;
 }
+article a {
+	border-bottom:1px solid #111;
+	border-color:rgba(17,17,17,.2);
+	text-decoration:none;
+	color:inherit;
+}
 article ul li {
 	padding-bottom:0.3em;
 }
@@ -323,7 +329,7 @@ code,blockquote,#endlinks {
 	font-family:inconsolata,monospace;
 }
 nav a:hover,nav a:visited:hover,a.thisPage {
-	text-decoration:underline;
+	border-bottom:1px solid black;
 }
 nav ul li ul li:first-child:before,nav ul li ul li:last-child:after {
 	font-weight:bold;
