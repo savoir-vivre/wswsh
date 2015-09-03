@@ -211,6 +211,7 @@ pre {
 	color:red;
 }
 #banner {
+	font-family:quicksand,sans-serif;
 	border-bottom:2px dashed black;
 	font-size:100px;
 	padding-bottom:0.5em;
@@ -322,7 +323,7 @@ blockquote {
 	}
 }
 /* entangled elements */
-#banner,h1,h2,h3,h3,h4,h5,h6 {
+h1,h2,h3,h3,h4,h5,h6 {
 	font-family:inconsolata,monospace;
 	font-weight:normal;
 }
