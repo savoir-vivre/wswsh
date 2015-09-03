@@ -323,7 +323,8 @@ blockquote {
 }
 /* entangled elements */
 #banner,h1,h2,h3,h3,h4,h5,h6 {
-	font-family:quicksand,sans-serif;
+	font-family:inconsolata,monospace;
+	font-weight:normal;
 }
 code,blockquote,#endlinks {
 	font-family:inconsolata,monospace;
